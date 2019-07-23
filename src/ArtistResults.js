@@ -4,7 +4,7 @@ const ArtistResults = ({ artistData, onBackClick }) => {
   return (
     <>
       <h1>{artistData.artist}</h1>
-      <button className="btn btn-primary" onClick={onBackClick}>
+      <button className="btn" onClick={onBackClick}>
         Back to Search
       </button>
     </>

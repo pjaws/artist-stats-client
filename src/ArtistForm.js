@@ -22,26 +22,21 @@ class ArtistForm extends Component {
 
   render() {
     return (
-      <div className="ArtistForm">
+      <>
         <h1>Get stats on your favorite Spotify artist</h1>
-        <form onSubmit={this.handleSubmit} className="form-inline">
-          <div className="form-group">
-            <label htmlFor="artist" className="sr-only">
-              Artist
-            </label>
-            <input
-              className="form-control"
-              name="artist"
-              id="artist"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
+        <form onSubmit={this.handleSubmit} className="artist-search">
+          <input
+            className="artist-search-input"
+            name="artist"
+            id="artist"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+          <button type="submit" className="btn">
             Go!
           </button>
         </form>
-      </div>
+      </>
     );
   }
 }

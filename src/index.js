@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import ArtistForm from "./ArtistForm";
 import ArtistResults from "./ArtistResults";
 
-import "normalize.css";
+import "bulma/css/bulma.css";
 import "./styles.css";
 
 const App = () => {

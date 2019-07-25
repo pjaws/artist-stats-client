@@ -1,21 +1,32 @@
 import React, { useState } from "react";
 
-async function getArtistStats(artist) {
-  const response = await fetch("/artists?q=" + artist);
-  const artistStats = await response.json();
-
-  return artistStats;
-}
-
 const ArtistForm = ({ onFormSubmit, setArtistData }) => {
   const [artist, setArtist] = useState("");
 
-  const handleSubmit = event => {
+  async function getArtistData(artist) {
+    try {
+      const response = await fetch("/artists?q=" + artist);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      const artistStats = await response.json();
+
+      return artistStats;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  const handleSubmit = async event => {
     event.preventDefault();
-    getArtistStats(artist).then(artistData => {
+
+    try {
+      const artistData = await getArtistData(artist);
       setArtistData(artistData);
       onFormSubmit();
-    });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

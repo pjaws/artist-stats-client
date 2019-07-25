@@ -5,7 +5,9 @@ const ArtistForm = ({ onFormSubmit, setArtistData }) => {
 
   async function getArtistData(artist) {
     try {
-      const response = await fetch("/artists?q=" + artist);
+      const response = await fetch(
+        `https://r5gg4.sse.codesandbox.io/artists?q=${artist}`
+      );
       if (!response.ok) {
         throw Error(response.statusText);
       }
@@ -33,25 +35,37 @@ const ArtistForm = ({ onFormSubmit, setArtistData }) => {
     <section className="hero">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">Get stats on your favorite Spotify artist</h1>
-          <form onSubmit={handleSubmit} className="artist-search">
-            <div className="field has-addons has-addons-centered">
-              <div className="control">
-                <input
-                  className="input"
-                  name="artist"
-                  id="artist"
-                  value={artist}
-                  onChange={e => setArtist(e.target.value)}
-                />
-              </div>
-              <div className="control">
-                <button type="submit" className="button is-primary">
-                  Go!
-                </button>
-              </div>
+          <div className="columns">
+            <div className="column is-6 is-offset-3">
+              <h1 className="title is-1 is-spaced">
+                Get stats on your favorite Spotify artist
+              </h1>
+              <p className="subtitle">
+                Is your favorite artist happy or sad? Are they danceable? Get
+                these and other stats by searching for your favorite artist
+                below.
+              </p>
+              <form onSubmit={handleSubmit} className="artist-search">
+                <div className="field has-addons has-addons-centered">
+                  <div className="control">
+                    <input
+                      className="input"
+                      name="artist"
+                      id="artist"
+                      value={artist}
+                      placeholder="Search for an artist"
+                      onChange={e => setArtist(e.target.value)}
+                    />
+                  </div>
+                  <div className="control">
+                    <button type="submit" className="button is-primary">
+                      Go!
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>

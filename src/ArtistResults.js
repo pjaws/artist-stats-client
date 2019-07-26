@@ -67,9 +67,26 @@ const ArtistResults = ({ artistData, onBackClick }) => {
             </div>
           </div>
         </div>
-        <button className="button" onClick={onBackClick}>
-          Back to Search
-        </button>
+        <div className="columns">
+          <div className="column">
+            <small>
+              <a
+                href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                What do these values mean?
+              </a>
+            </small>
+          </div>
+        </div>
+        <div className="columns">
+          <div className="column">
+            <button className="button is-info" onClick={onBackClick}>
+              Back to Search
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

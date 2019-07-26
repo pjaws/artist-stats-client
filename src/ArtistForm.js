@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const ArtistForm = ({ onFormSubmit, setArtistData }) => {
   const [artist, setArtist] = useState("");
+  const [error, setError] = useState("");
 
   async function getArtistData(artist) {
     try {
@@ -19,8 +20,25 @@ const ArtistForm = ({ onFormSubmit, setArtistData }) => {
     }
   }
 
+  const validateForm = input => {
+    let error = "";
+    if (input === "") {
+      error = "Please enter an artist name.";
+    }
+    setError(error);
+  };
+
+  const handleChange = event => {
+    setError("");
+    setArtist(event.target.value);
+  };
+
   const handleSubmit = async event => {
     event.preventDefault();
+
+    validateForm(artist);
+
+    if (error.length) return;
 
     try {
       const artistData = await getArtistData(artist);
@@ -42,8 +60,7 @@ const ArtistForm = ({ onFormSubmit, setArtistData }) => {
               </h1>
               <p className="subtitle">
                 Is your favorite artist happy or sad? Are they danceable? Get
-                these and other stats by searching for your favorite artist
-                below.
+                these and other stats by searching for an artist below.
               </p>
               <form onSubmit={handleSubmit} className="artist-search">
                 <div className="field has-addons has-addons-centered">
@@ -54,7 +71,7 @@ const ArtistForm = ({ onFormSubmit, setArtistData }) => {
                       id="artist"
                       value={artist}
                       placeholder="Search for an artist"
-                      onChange={e => setArtist(e.target.value)}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="control">
@@ -63,6 +80,7 @@ const ArtistForm = ({ onFormSubmit, setArtistData }) => {
                     </button>
                   </div>
                 </div>
+                <small className="has-text-danger">{error}</small>
               </form>
             </div>
           </div>

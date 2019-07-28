@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import ArtistForm from "./ArtistForm";
-import ArtistResults from "./ArtistResults";
+import SingleArtistSearch from "./SingleArtistSearch";
+import CompareArtists from "./CompareArtists";
 
 import "bulma/css/bulma.css";
 import "./styles.css";
 
 const App = () => {
-  const [showArtistForm, setShowArtistForm] = useState(true);
-  const [artistData, setArtistData] = useState();
+  const [showSingle, setShowSingle] = useState(true);
   return (
     <div className="App">
-      {showArtistForm && (
-        <ArtistForm
-          onFormSubmit={() => setShowArtistForm(false)}
-          setArtistData={data => setArtistData(data)}
-        />
+      {showSingle && (
+        <div>
+          <SingleArtistSearch />
+          <button className="button" onClick={() => setShowSingle(false)}>
+            Want to compare artists instead?
+          </button>
+        </div>
       )}
-      {!showArtistForm && (
-        <ArtistResults
-          artistData={artistData}
-          onBackClick={() => setShowArtistForm(true)}
-        />
+      {!showSingle && (
+        <div>
+          <CompareArtists searchedArtist={{}} />
+          <button className="button" onClick={() => setShowSingle(true)}>
+            Back to Search
+          </button>
+        </div>
       )}
     </div>
   );

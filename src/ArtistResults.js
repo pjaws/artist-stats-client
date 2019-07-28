@@ -1,8 +1,6 @@
 import React from "react";
 
 const ArtistResults = ({ artistData, onBackClick }) => {
-  console.log("artistData:");
-  console.log(artistData);
   return (
     <section className="section">
       <div className="container">

@@ -7,20 +7,16 @@ import "bulma/css/bulma.css";
 import "./styles.css";
 
 const App = () => {
-  const [showArtistForm, setShowArtistForm] = useState(true);
-  const [artistData, setArtistData] = useState();
+  const [artistData, setArtistData] = useState(null);
   return (
     <div className="App">
-      {showArtistForm && (
-        <ArtistForm
-          onFormSubmit={() => setShowArtistForm(false)}
-          setArtistData={data => setArtistData(data)}
-        />
+      {!artistData && (
+        <ArtistForm setArtistData={data => setArtistData(data)} />
       )}
-      {!showArtistForm && (
+      {artistData && (
         <ArtistResults
           artistData={artistData}
-          onBackClick={() => setShowArtistForm(true)}
+          onBackClick={() => setArtistData(null)}
         />
       )}
     </div>

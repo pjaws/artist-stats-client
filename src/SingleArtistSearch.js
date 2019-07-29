@@ -6,7 +6,7 @@ const SingleArtistSearch = () => {
   const [artistData, setArtistData] = useState(null);
 
   return (
-    <section className="SingleArtistSearch">
+    <>
       {!artistData && (
         <ArtistForm setArtistData={data => setArtistData(data)} />
       )}
@@ -16,7 +16,7 @@ const SingleArtistSearch = () => {
           onBackClick={() => setArtistData(null)}
         />
       )}
-    </section>
+    </>
   );
 };
 

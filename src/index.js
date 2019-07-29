@@ -21,7 +21,10 @@ const App = () => {
       {!showSingle && (
         <div>
           <CompareArtists searchedArtist={{}} />
-          <button className="button" onClick={() => setShowSingle(true)}>
+          <button
+            className="button is-info"
+            onClick={() => setShowSingle(true)}
+          >
             Back to Search
           </button>
         </div>

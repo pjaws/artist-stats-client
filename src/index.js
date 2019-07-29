@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import SingleArtistSearch from "./SingleArtistSearch";
-import CompareArtists from "./CompareArtists";
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import SingleArtistSearch from './SingleArtistSearch';
+import CompareArtists from './CompareArtists';
 
-import "bulma/css/bulma.css";
-import "./styles.css";
+import 'bulma/css/bulma.css';
+import './styles.css';
 
 const App = () => {
   const [showSingle, setShowSingle] = useState(true);
@@ -33,5 +33,5 @@ const App = () => {
   );
 };
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);

@@ -1,5 +1,5 @@
-import React from "react";
-import ArtistSearchBox from "./ArtistSearchBox";
+import React from 'react';
+import ArtistSearchBox from './ArtistSearchBox';
 
 const ArtistForm = ({ setArtistData }) => {
   return (

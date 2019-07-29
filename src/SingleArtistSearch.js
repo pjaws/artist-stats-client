@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import ArtistForm from "./ArtistForm";
-import ArtistResults from "./ArtistResults";
+import React, { useState } from 'react';
+import ArtistForm from './ArtistForm';
+import ArtistResults from './ArtistResults';
 
 const SingleArtistSearch = () => {
   const [artistData, setArtistData] = useState(null);

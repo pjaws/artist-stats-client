@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import ArtistSearchBox from "./ArtistSearchBox";
-import ArtistComparisonResult from "./ArtistComparisonResult";
+import React, { useState } from 'react';
+import ArtistSearchBox from './ArtistSearchBox';
+import ArtistComparisonResult from './ArtistComparisonResult';
 
 const CompareArtists = ({ searchedArtist }) => {
   const [artist1, setArtist1] = useState(null);

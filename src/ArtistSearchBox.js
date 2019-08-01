@@ -7,7 +7,7 @@ const ArtistSearchBox = ({ setArtistData }) => {
   async function getArtistData(artist) {
     try {
       const response = await fetch(
-        `https://r5gg4.sse.codesandbox.io/artists?q=${artist}`,
+        `https://aqueous-island-52978.herokuapp.com/artists?q=${artist}`,
       );
       if (!response.ok) {
         throw Error(response.statusText);
